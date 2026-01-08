@@ -1,65 +1,178 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+import { IoStar, IoCart, IoSearch } from "react-icons/io5";
+
+interface Product {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  images: string[];
+  rating: number;
+  reviews: number;
+  stock: number;
+}
 
 export default function Home() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState("all");
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetchProducts();
+  }, [category]);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const params = new URLSearchParams();
+      if (category !== "all") params.append("category", category);
+      if (search) params.append("search", search);
+
+      const res = await fetch(`/api/products?${params}`);
+      const json = await res.json();
+      if (json.success) {
+        setProducts(json.data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch products", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const categories = ["all", "Electronics", "Photography", "Fashion", "Home"];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="animated-gradient min-h-screen flex flex-col">
+      <Navigation />
+
+      <main className="container mx-auto px-4 pt-24 pb-12">
+        {/* Hero */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
+            CubeCart 3D
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-300 mb-8">
+            Experience products in a whole new dimension
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+          {/* Search */}
+          <div className="max-w-md mx-auto glass-strong rounded-full p-2 flex items-center gap-2">
+            <IoSearch className="text-gray-400 ml-4" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && fetchProducts()}
+              placeholder="Search products..."
+              className="flex-1 bg-transparent outline-none px-2 py-2"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <button
+              onClick={fetchProducts}
+              className="px-6 py-2 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
+            >
+              Search
+            </button>
+          </div>
         </div>
+
+        {/* Categories */}
+        <div className="flex justify-center gap-2 mb-12 flex-wrap">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setCategory(cat)}
+              className={`px-6 py-2 rounded-full font-medium transition ${
+                category === cat
+                  ? "bg-yellow-400 text-black"
+                  : "glass hover:bg-white/10"
+              }`}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Loading */}
+        {loading && (
+          <div className="text-center py-12">
+            <div className="inline-block w-8 h-8 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
+
+        {/* Products Grid */}
+        {!loading && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {products.map((product) => (
+              <Link
+                key={product._id}
+                href={`/product/${product._id}`}
+                className="glass-strong rounded-2xl overflow-hidden hover:scale-105 transition-transform group"
+              >
+                {product.images[0] && (
+                  <div className="relative h-64 bg-gradient-to-br from-gray-800 to-gray-900">
+                    <Image
+                      src={product.images[0]}
+                      alt={product.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-yellow-400 transition">
+                    {product.name}
+                  </h3>
+
+                  <p className="text-sm text-gray-400 mb-3 line-clamp-2">
+                    {product.description}
+                  </p>
+
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-1">
+                      <IoStar className="text-yellow-400" />
+                      <span className="text-sm font-semibold">{product.rating}</span>
+                    </div>
+                    <span className="text-xs text-gray-500">
+                      ({product.reviews} reviews)
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-yellow-400">
+                      ${product.price}
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      {product.stock > 0 ? "In Stock" : "Out of Stock"}
+                    </span>
+                  </div>
+
+                  <button className="w-full mt-4 py-3 bg-yellow-400/20 text-yellow-400 rounded-full font-semibold hover:bg-yellow-400/30 transition">
+                    View in 3D →
+                  </button>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {!loading && products.length === 0 && (
+          <div className="text-center py-12 glass-strong rounded-2xl max-w-md mx-auto">
+            <p className="text-xl text-gray-400">No products found</p>
+          </div>
+        )}
       </main>
+
+      <Footer />
     </div>
   );
 }

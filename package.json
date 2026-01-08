@@ -1,7 +1,17 @@
 {
-  "name": "chef-cube",
-  "version": "0.1.0",
+  "name": "cube-cart",
+  "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Chathura Dinuwan",
+    "url": "https://github.com/chathuradinuwan"
+  },
+  "description": "CubeCart - A revolutionary 3D product showcase e-commerce platform using CSS 3D transforms and Framer Motion",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chathuradinuwan/cube-cart"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +19,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.24.7",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.2",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-icons": "^5.5.0",
+    "stripe": "^20.1.1",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
