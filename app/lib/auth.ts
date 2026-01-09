@@ -73,3 +73,23 @@ export function getUserFromRequest(request: Request): TokenPayload | null {
 
   return verifyToken(token);
 }
+
+/**
+ * Check if user is admin
+ */
+export function isAdmin(user: TokenPayload | null): boolean {
+  return user?.role === 'admin';
+}
+
+/**
+ * Get admin user from request (returns null if not authenticated or not admin)
+ */
+export function getAdminFromRequest(request: Request): TokenPayload | null {
+  const user = getUserFromRequest(request);
+
+  if (!user || !isAdmin(user)) {
+    return null;
+  }
+
+  return user;
+}

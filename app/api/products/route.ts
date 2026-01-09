@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/app/lib/db';
 import Product from '@/app/lib/models/Product';
+import { getAdminFromRequest } from '@/app/lib/auth';
 
 export async function GET(request: Request) {
   await dbConnect();
@@ -123,6 +124,15 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   await dbConnect();
+
+  // Check admin authorization
+  const admin = getAdminFromRequest(request);
+  if (!admin) {
+    return NextResponse.json(
+      { success: false, error: 'Unauthorized. Admin access required.' },
+      { status: 403 }
+    );
+  }
 
   try {
     const body = await request.json();
