@@ -1,6 +1,6 @@
 "use client";
 
-import { IoLogoGithub } from "react-icons/io5";
+import { IoLogoGithub, IoLogoLinkedin, IoGlobe } from "react-icons/io5";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,10 +23,10 @@ export default function Footer() {
 
           {/* Links Section */}
           <div className="text-center">
-            <h4 className="text-sm font-semibold mb-3 text-gray-300">Quick Links</h4>
+            <h4 className="text-sm font-semibold mb-3 text-gray-300">Connect</h4>
             <div className="flex flex-col gap-2">
               <a
-                href="https://github.com/chathuradinuwan/cube-cart"
+                href="https://github.com/Chathu715/cube-cart"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-gray-400 hover:text-yellow-400 transition inline-flex items-center justify-center gap-2"
@@ -34,12 +34,28 @@ export default function Footer() {
                 <IoLogoGithub /> View on GitHub
               </a>
               <a
-                href="https://github.com/chathuradinuwan"
+                href="https://chathura-dinuwan.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-400 hover:text-yellow-400 transition"
+                className="text-sm text-gray-400 hover:text-yellow-400 transition inline-flex items-center justify-center gap-2"
               >
-                Developer Profile
+                <IoGlobe /> Portfolio
+              </a>
+              <a
+                href="https://www.linkedin.com/in/chathura-dinuwan-1b5652256/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-400 hover:text-yellow-400 transition inline-flex items-center justify-center gap-2"
+              >
+                <IoLogoLinkedin /> LinkedIn
+              </a>
+              <a
+                href="https://github.com/Chathu715"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-400 hover:text-yellow-400 transition inline-flex items-center justify-center gap-2"
+              >
+                <IoLogoGithub /> GitHub Profile
               </a>
             </div>
           </div>
@@ -68,7 +84,7 @@ export default function Footer() {
             <p className="text-xs text-gray-500">
               Licensed under the{" "}
               <a
-                href="https://github.com/chathuradinuwan/cube-cart/blob/main/LICENSE"
+                href="https://github.com/Chathu715/cube-cart/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-yellow-400 hover:underline"

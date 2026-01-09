@@ -117,7 +117,7 @@ export default function AccountPage() {
               Profile
             </button>
             <button
-              onClick={() => setActiveTab('orders')}
+              onClick={() => router.push('/account/orders')}
               className={`px-6 py-3 rounded-lg font-semibold transition ${
                 activeTab === 'orders'
                   ? 'bg-yellow-400 text-black'
@@ -327,23 +327,8 @@ export default function AccountPage() {
             </div>
           )}
 
-          {/* Orders Tab */}
-          {activeTab === 'orders' && (
-            <div className="glass-strong rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-4">Order History</h3>
-              <div className="text-center py-12">
-                <IoReceipt className="text-6xl text-gray-600 mx-auto mb-4" />
-                <p className="text-xl text-gray-400 mb-2">No orders yet</p>
-                <p className="text-sm text-gray-500 mb-6">Your order history will appear here after you make a purchase</p>
-                <button
-                  onClick={() => router.push('/')}
-                  className="px-6 py-3 bg-yellow-400 text-black rounded-full font-bold hover:bg-yellow-300 transition"
-                >
-                  Start Shopping
-                </button>
-              </div>
-            </div>
-          )}
+          {/* Orders Tab - Handled by navigation */}
+          {activeTab === 'orders' && null}
         </div>
       </main>
 

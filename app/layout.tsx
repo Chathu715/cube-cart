@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "CubeCart - 3D E-Commerce Experience",
   description: "Experience products in a whole new dimension with CubeCart's revolutionary 3D cube interface. Browse, explore, and shop with an innovative spatial product showcase.",
   keywords: ["e-commerce", "3D shopping", "interactive products", "cube cart", "online shopping"],
-  authors: [{ name: "Chathura Dinuwan", url: "https://github.com/chathuradinuwan" }],
+  authors: [{ name: "Chathura Dinuwan", url: "https://github.com/Chathu715" }],
   creator: "Chathura Dinuwan",
   openGraph: {
     type: "website",

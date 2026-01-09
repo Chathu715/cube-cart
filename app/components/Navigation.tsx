@@ -101,7 +101,7 @@ export default function Navigation() {
                     </Link>
                     {user?.role === 'admin' && (
                       <Link
-                        href="/admin/dashboard"
+                        href="/admin"
                         className="flex items-center gap-2 px-4 py-2 hover:bg-white/10 transition text-sm text-yellow-400"
                         onClick={() => setShowUserMenu(false)}
                       >

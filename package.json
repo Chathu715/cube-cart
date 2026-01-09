@@ -4,12 +4,12 @@
   "private": true,
   "author": {
     "name": "Chathura Dinuwan",
-    "url": "https://github.com/chathuradinuwan"
+    "url": "https://github.com/Chathu715"
   },
   "description": "CubeCart - A revolutionary 3D product showcase e-commerce platform using CSS 3D transforms and Framer Motion",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chathuradinuwan/cube-cart"
+    "url": "https://github.com/Chathu715/cube-cart"
   },
   "license": "MIT",
   "scripts": {
@@ -19,6 +19,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.6.1",
     "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.24.7",
@@ -33,6 +35,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

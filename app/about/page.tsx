@@ -134,17 +134,33 @@ export default function AboutPage() {
                 CubeCart represents the intersection of creative design and technical excellence,
                 showcasing what's possible when you push the limits of modern web development.
               </p>
-              <div className="flex justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://github.com/chathuradinuwan"
+                  href="https://chathura-dinuwan.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 bg-yellow-400 text-black rounded-full font-semibold hover:bg-yellow-300 transition"
                 >
-                  View GitHub Profile
+                  View Portfolio
                 </a>
                 <a
-                  href="https://github.com/chathuradinuwan/cube-cart"
+                  href="https://github.com/Chathu715"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 glass rounded-full font-semibold hover:bg-white/10 transition"
+                >
+                  GitHub Profile
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/chathura-dinuwan-1b5652256/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 glass rounded-full font-semibold hover:bg-white/10 transition"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://github.com/Chathu715/cube-cart"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 glass rounded-full font-semibold hover:bg-white/10 transition"

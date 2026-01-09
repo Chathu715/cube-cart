@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { IoMail, IoLogoGithub, IoSend, IoPerson, IoText, IoCheckmarkCircle } from "react-icons/io5";
+import { IoMail, IoLogoGithub, IoSend, IoPerson, IoText, IoCheckmarkCircle, IoLogoLinkedin, IoGlobe } from "react-icons/io5";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -145,14 +145,50 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="glass rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
+                    <IoGlobe className="text-3xl text-yellow-400" />
+                    <h3 className="text-lg font-bold">Portfolio</h3>
+                  </div>
+                  <p className="text-gray-300 mb-4">
+                    Check out my portfolio to see more projects and skills.
+                  </p>
+                  <a
+                    href="https://chathura-dinuwan.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-2 glass rounded-full hover:bg-white/10 transition font-semibold"
+                  >
+                    Visit Portfolio →
+                  </a>
+                </div>
+
+                <div className="glass rounded-xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <IoLogoLinkedin className="text-3xl text-blue-400" />
+                    <h3 className="text-lg font-bold">LinkedIn</h3>
+                  </div>
+                  <p className="text-gray-300 mb-4">
+                    Connect with me on LinkedIn for professional networking.
+                  </p>
+                  <a
+                    href="https://www.linkedin.com/in/chathura-dinuwan-1b5652256/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-2 glass rounded-full hover:bg-white/10 transition font-semibold"
+                  >
+                    Connect on LinkedIn →
+                  </a>
+                </div>
+
+                <div className="glass rounded-xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
                     <IoLogoGithub className="text-3xl text-white" />
-                    <h3 className="text-lg font-bold">GitHub</h3>
+                    <h3 className="text-lg font-bold">GitHub Repository</h3>
                   </div>
                   <p className="text-gray-300 mb-4">
                     View the source code, report issues, or contribute to the project.
                   </p>
                   <a
-                    href="https://github.com/chathuradinuwan/cube-cart"
+                    href="https://github.com/Chathu715/cube-cart"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-2 glass rounded-full hover:bg-white/10 transition font-semibold"
@@ -164,18 +200,18 @@ export default function ContactPage() {
                 <div className="glass rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <IoPerson className="text-3xl text-yellow-400" />
-                    <h3 className="text-lg font-bold">Developer Profile</h3>
+                    <h3 className="text-lg font-bold">GitHub Profile</h3>
                   </div>
                   <p className="text-gray-300 mb-4">
-                    Connect with the developer and explore other projects.
+                    Explore my other projects and open source contributions.
                   </p>
                   <a
-                    href="https://github.com/chathuradinuwan"
+                    href="https://github.com/Chathu715"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-2 glass rounded-full hover:bg-white/10 transition font-semibold"
                   >
-                    Visit Profile →
+                    Visit GitHub Profile →
                   </a>
                 </div>
               </div>

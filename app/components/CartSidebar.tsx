@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCart } from "../contexts/CartContext";
 import Image from "next/image";
 import { IoClose, IoTrash, IoAdd, IoRemove, IoCart, IoCheckmarkCircle } from "react-icons/io5";
@@ -144,16 +145,14 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
                 </div>
 
                 {/* Checkout Button */}
-                <button
-                  onClick={() => {
-                    // TODO: Implement checkout
-                    alert("Checkout functionality coming soon!");
-                  }}
+                <Link
+                  href="/checkout"
+                  onClick={onClose}
                   className="w-full py-4 bg-yellow-400 text-black rounded-full font-bold hover:bg-yellow-300 transition flex items-center justify-center gap-2"
                 >
                   <IoCheckmarkCircle className="text-xl" />
                   Proceed to Checkout
-                </button>
+                </Link>
 
                 <p className="text-xs text-center text-gray-500">
                   Taxes and shipping calculated at checkout

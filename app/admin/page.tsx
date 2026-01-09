@@ -138,17 +138,20 @@ export default function AdminDashboard() {
               </div>
             </Link>
 
-            <div className="glass-strong rounded-2xl p-6 opacity-50 cursor-not-allowed">
+            <Link
+              href="/admin/orders"
+              className="glass-strong rounded-2xl p-6 hover:bg-white/10 transition group"
+            >
               <div className="flex items-center gap-4">
-                <div className="p-4 bg-blue-400/20 rounded-xl">
+                <div className="p-4 bg-blue-400/20 rounded-xl group-hover:bg-blue-400/30 transition">
                   <IoCart className="text-3xl text-blue-400" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-1">Manage Orders</h3>
-                  <p className="text-sm text-gray-400">Coming soon</p>
+                  <p className="text-sm text-gray-400">View and update order status</p>
                 </div>
               </div>
-            </div>
+            </Link>
 
             <div className="glass-strong rounded-2xl p-6 opacity-50 cursor-not-allowed">
               <div className="flex items-center gap-4">
