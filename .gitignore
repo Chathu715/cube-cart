@@ -12,6 +12,9 @@ build/
 .env*
 !.env.example
 
+# Credentials
+credentials.txt
+
 # Misc
 .DS_Store
 *.pem

@@ -70,8 +70,7 @@ app/
 
 ## Admin Access
 
-- **Email:** admin@cubecart.com
-- **Password:** admin123
+For admin credentials, please refer to the `credentials.txt` file (not included in repository for security).
 
 ## License
 
